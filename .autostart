@@ -1,0 +1,4 @@
+#!/bin/bash
+feh --no-fehbg --bg-center 'background-path-here'
+polybar example &
+setxkbmap -layout gb
