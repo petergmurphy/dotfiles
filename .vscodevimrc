@@ -1,0 +1,7 @@
+# prevent 'd' from copying to register, use 'x' when looking to delete and copy to unnamed register
+noremap d "_d
+noremap d "_d
+
+nnoremap c "_c
+vnoremap c "_c
+
