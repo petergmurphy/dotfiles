@@ -1,7 +1,20 @@
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-vim.keymap.set('n', '<C-p>pf', builtin.git_files, {})
-vim.keymap.set('n', '<leader>ps', function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") });
+
+-- Sets the cwd to the directory where Neovim was started
+local start_dir = vim.loop.cwd()
+
+vim.keymap.set('n', '<leader>ff', function()
+  builtin.find_files({ cwd = start_dir })
+end, {})
+
+vim.keymap.set('n', '<C-p>', function()
+  builtin.git_files({ cwd = start_dir })
+end, {})
+
+vim.keymap.set('n', '<leader>fs', function()
+  builtin.grep_string({ search = vim.fn.input("Grep > "), cwd = start_dir })
 end)
+
+vim.keymap.set('n', '<leader>b', builtin.buffers, {})
+
 

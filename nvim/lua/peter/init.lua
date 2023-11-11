@@ -1,3 +1,4 @@
+require("peter.packer")
 require("peter.remap")
 require("peter.set")
 
