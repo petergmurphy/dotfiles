@@ -11,10 +11,10 @@ vim.keymap.set('n', '<C-p>', function()
   builtin.git_files({ cwd = start_dir })
 end, {})
 
-vim.keymap.set('n', '<leader>fs', function()
+vim.keymap.set('n', '<leader>ft', function()
   builtin.grep_string({ search = vim.fn.input("Grep > "), cwd = start_dir })
 end)
 
-vim.keymap.set('n', '<leader>b', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 
 
