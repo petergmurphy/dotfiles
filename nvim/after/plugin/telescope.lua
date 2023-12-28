@@ -18,3 +18,13 @@ end, { desc = "Find text" })
 
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Find buffer" })
 
+require('telescope').setup{
+    defaults = {
+        mappings = {
+            i = {
+                ["<esc>"] = require('telescope.actions').close,
+            },
+        }
+    },
+}
+

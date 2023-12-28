@@ -30,3 +30,15 @@ vim.opt.updatetime = 50
 
 -- vim.opt.colorcolumn = "80"
 
+-- Set border with other windows
+vim.opt.fillchars = {
+    vert = '│', -- Vertical split line character
+    horiz = '─', -- Horizontal split line character
+    horizup = '┴', -- Horizontal split line character (upwards)
+    horizdown = '┬', -- Horizontal split line character (downwards)
+    vertleft = '┤', -- Vertical split line character (left)
+    vertright = '├', -- Vertical split line character (right)
+    verthoriz = '┼' -- Intersection of horizontal and vertical lines
+}
+
+
