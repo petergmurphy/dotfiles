@@ -13,39 +13,9 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +2 lua/peter/remap.lua
-badd +28 after/plugin/telescope.lua
-badd +17 after/plugin/lsp.lua
-badd +1 after/plugin/harpoon.lua
-badd +1 diffpanel_3
-badd +3 lua/peter/init.lua
-badd +1 init.lua
-badd +25 Session.vim
-badd +1 ~/Projects/dotfiles/nvim/
-badd +8 dependencies.md
-badd +17 lua/peter/packer.lua
 argglobal
 %argdel
 $argadd ~/Projects/dotfiles/nvim/
-edit after/plugin/lsp.lua
-argglobal
-balt after/plugin/telescope.lua
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 5 - ((4 * winheight(0) + 28) / 56)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 5
-normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -58,7 +28,6 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
-nohlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost
