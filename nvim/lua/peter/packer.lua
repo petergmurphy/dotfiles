@@ -21,6 +21,10 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-obsession'
 
+  use 'tpope/vim-commentary'
+
+  use 'mg979/vim-visual-multi'
+
   use 'mbbill/undotree'
 
   use 'tpope/vim-fugitive'

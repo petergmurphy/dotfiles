@@ -9,7 +9,7 @@ vim.keymap.set('n', '<leader>ff', function()
 end, { desc = "Find file" })
 
 vim.keymap.set('n', '<C-p>', function()
-  builtin.git_files({ cwd = start_dir })
+  builtin.git_files({ cwd = start_dir, use_git_root = false })
 end, { desc = "Find file (git repo)" })
 
 vim.keymap.set('n', '<leader>ft', function()
@@ -18,13 +18,13 @@ end, { desc = "Find text" })
 
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Find buffer" })
 
-require('telescope').setup{
-    defaults = {
-        mappings = {
-            i = {
-                ["<esc>"] = require('telescope.actions').close,
-            },
-        }
-    },
-}
+-- require('telescope').setup{
+--     defaults = {
+--         mappings = {
+--             i = {
+--                 ["<esc>"] = require('telescope.actions').close,
+--             },
+--         }
+--     },
+-- }
 

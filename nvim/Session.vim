@@ -13,35 +13,20 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +11 lua/peter/packer.lua
+badd +1 lua/peter/packer.lua
 badd +1 ~/Projects/dotfiles/.vscodevimrc
-badd +34 lua/peter/set.lua
+badd +22 lua/peter/set.lua
 badd +1 lua/peter/remap.lua
-badd +25 after/plugin/telescope.lua
-badd +85 after/plugin/lsp.lua
-badd +0 ~/Projects/dotfiles/nvim
+badd +12 after/plugin/telescope.lua
+badd +17 after/plugin/lsp.lua
+badd +1 after/plugin/harpoon.lua
+badd +1 diffpanel_3
+badd +3 lua/peter/init.lua
+badd +12 after/plugin/neotree.lua
+badd +1 init.lua
 argglobal
 %argdel
-$argadd ~/Projects/dotfiles/nvim
-edit lua/peter/set.lua
-argglobal
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 35 - ((34 * winheight(0) + 29) / 58)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 35
-normal! 0
-lcd ~/Projects/dotfiles/nvim
+$argadd ~/Projects/dotfiles/nvim/
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
