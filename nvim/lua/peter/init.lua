@@ -3,7 +3,7 @@ require("peter.remap")
 require("peter.set")
 
 -- Set theme
-vim.cmd[[colorscheme NeoSolarized]]
+-- vim.cmd[[colorscheme NeoSolarized]]
 
 -- Set termguicolors 
 vim.opt.termguicolors = true

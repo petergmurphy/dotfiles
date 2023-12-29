@@ -29,6 +29,8 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-fugitive'
 
+  use 'famiu/bufdelete.nvim'
+
   use {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v3.x',
