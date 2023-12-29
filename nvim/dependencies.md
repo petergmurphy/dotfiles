@@ -9,3 +9,5 @@
   ```
   let g:python3_host_prog="/path/to/python/executable/"
   ```
+- GH Copilot:
+  - Need to run `:Copilot setup`

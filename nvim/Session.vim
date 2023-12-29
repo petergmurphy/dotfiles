@@ -13,59 +13,23 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 lua/peter/remap.lua
-badd +13 after/plugin/telescope.lua
+badd +2 lua/peter/remap.lua
+badd +28 after/plugin/telescope.lua
 badd +17 after/plugin/lsp.lua
-badd +4 after/plugin/harpoon.lua
+badd +1 after/plugin/harpoon.lua
 badd +1 diffpanel_3
 badd +3 lua/peter/init.lua
 badd +1 init.lua
 badd +25 Session.vim
 badd +1 ~/Projects/dotfiles/nvim/
+badd +8 dependencies.md
+badd +17 lua/peter/packer.lua
 argglobal
 %argdel
 $argadd ~/Projects/dotfiles/nvim/
-edit lua/peter/remap.lua
-let s:save_splitbelow = &splitbelow
-let s:save_splitright = &splitright
-set splitbelow splitright
-wincmd _ | wincmd |
-split
-1wincmd k
-wincmd w
-let &splitbelow = s:save_splitbelow
-let &splitright = s:save_splitright
-wincmd t
-let s:save_winminheight = &winminheight
-let s:save_winminwidth = &winminwidth
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-exe '1resize ' . ((&lines * 20 + 22) / 44)
-exe '2resize ' . ((&lines * 20 + 22) / 44)
+edit after/plugin/lsp.lua
 argglobal
-enew | setl bt=help
-help :bwipeout@en
-balt lua/peter/remap.lua
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 1177 - ((11 * winheight(0) + 10) / 20)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 1177
-normal! 056|
-wincmd w
-argglobal
+balt after/plugin/telescope.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -76,15 +40,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 10) / 20)
+let s:l = 5 - ((4 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
+keepjumps 5
 normal! 0
-wincmd w
-exe '1resize ' . ((&lines * 20 + 22) / 44)
-exe '2resize ' . ((&lines * 20 + 22) / 44)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -92,8 +53,6 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
-let &winminheight = s:save_winminheight
-let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
