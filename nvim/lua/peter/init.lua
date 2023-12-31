@@ -7,7 +7,7 @@ require("peter.set")
 
 -- Set termguicolors 
 vim.opt.termguicolors = true
-require("bufferline").setup{}
+-- require("bufferline").setup{}
 
 vim.cmd([[if argc() == 1 && isdirectory(argv(0)) | cd `=argv(0)` | endif]])
 

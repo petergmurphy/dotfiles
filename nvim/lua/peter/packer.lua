@@ -13,19 +13,31 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  -- Themes 
   use 'Tsuzat/NeoSolarized.nvim'
+  use 'navarasu/onedark.nvim'
+
+  use 'karb94/neoscroll.nvim'
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
   use 'ThePrimeagen/harpoon'
 
+  use 'mhartington/formatter.nvim'
+
   use 'tpope/vim-obsession'
 
   use 'tpope/vim-commentary'
 
+  use 'mfussenegger/nvim-lint'
+
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+
   use 'mg979/vim-visual-multi'
 
   use 'mbbill/undotree'
+
+  use 'github/copilot.vim'
 
   use 'tpope/vim-fugitive'
 
@@ -65,7 +77,8 @@ return require('packer').startup(function(use)
       },
   }
 
- use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+ -- Commented out for now
+ -- use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 
 use {
   "folke/which-key.nvim",

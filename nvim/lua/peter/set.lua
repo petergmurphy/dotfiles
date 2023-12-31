@@ -1,3 +1,5 @@
+vim.cmd.colorscheme('onedark')
+
 vim.opt.guicursor = ""
 
 vim.opt.nu = true

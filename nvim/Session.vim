@@ -13,9 +13,40 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
+badd +0 after/plugin/colors.lua
+badd +31 ~/Projects/dotfiles/nvim/after/plugin/lsp.lua
+badd +1 after/plugin/fugative.lua
+badd +22 ~/Projects/dotfiles/nvim/Session.vim
+badd +26 lua/peter/packer.lua
+badd +1 ~/Projects/dotfiles/nvim/
+badd +1 lua/peter/set.lua
+badd +8 after/plugin/harpoon.lua
+badd +9 lua/peter/remap.lua
+badd +1 init.lua
+badd +10 ~/.config/nvim/lua/peter/init.lua
+badd +49 ~/Projects/dotfiles/nvim/after/plugin/formatter.lua
 argglobal
 %argdel
 $argadd ~/Projects/dotfiles/nvim/
+edit after/plugin/colors.lua
+argglobal
+balt after/plugin/colors.lua
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1 - ((0 * winheight(0) + 28) / 57)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -28,6 +59,7 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
+nohlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost
