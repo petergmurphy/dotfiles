@@ -16,22 +16,20 @@ endif
 badd +11 ~/Projects/dotfiles/nvim/after/plugin/lsp.lua
 badd +1 after/plugin/fugative.lua
 badd +22 ~/Projects/dotfiles/nvim/Session.vim
-badd +21 lua/peter/packer.lua
+badd +22 lua/peter/packer.lua
 badd +1 ~/Projects/dotfiles/nvim/
 badd +18 lua/peter/set.lua
 badd +1 after/plugin/harpoon.lua
 badd +9 lua/peter/remap.lua
 badd +1 init.lua
 badd +10 ~/.config/nvim/lua/peter/init.lua
-badd +2 ~/Projects/dotfiles/nvim/after/plugin/formatter.lua
 badd +1 ~/Projects/dotfiles/nvim/after/plugin/autoclose.lua
 badd +20 ~/Projects/dotfiles/nvim/after/plugin/lualine.lua
 argglobal
 %argdel
 $argadd ~/Projects/dotfiles/nvim/
-edit ~/Projects/dotfiles/nvim/after/plugin/formatter.lua
+edit lua/peter/packer.lua
 argglobal
-balt lua/peter/packer.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -39,15 +37,17 @@ setlocal fdi=#
 setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
-setlocal fen
+setlocal nofen
 silent! normal! zE
+1,15fold
+28,195fold
 let &fdl = &fdl
-let s:l = 2 - ((1 * winheight(0) + 14) / 28)
+let s:l = 22 - ((14 * winheight(0) + 14) / 28)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 2
-normal! 04|
+keepjumps 22
+normal! 06|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
