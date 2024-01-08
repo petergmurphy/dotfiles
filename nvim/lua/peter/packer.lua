@@ -23,6 +23,15 @@ return require("packer").startup(function(use)
 
 	use("karb94/neoscroll.nvim")
 
+	-- Prettier Support
+	-- use("MunifTanjim/prettier.nvim")
+	-- use("sbdchd/neoformat")
+	use("prettier/vim-prettier", {
+		run = "yarn install --frozen-lockfile --production",
+	})
+	vim.g["prettier#autoformat_config_present"] = 1
+	use("nvimtools/none-ls.nvim") -- Might not do anything? Check later
+
 	use("m4xshen/autoclose.nvim")
 
 	use("mhartington/formatter.nvim")
@@ -35,8 +44,6 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
 	use("ThePrimeagen/harpoon")
-
-	use("jose-elias-alvarez/null-ls.nvim")
 
 	use("airblade/vim-gitgutter")
 
@@ -53,6 +60,8 @@ return require("packer").startup(function(use)
 	use("mbbill/undotree")
 
 	use("github/copilot.vim")
+
+	use("fatih/vim-go")
 
 	use("tpope/vim-fugitive")
 

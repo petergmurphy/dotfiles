@@ -16,7 +16,7 @@ endif
 badd +11 ~/Projects/dotfiles/nvim/after/plugin/lsp.lua
 badd +1 after/plugin/fugative.lua
 badd +22 ~/Projects/dotfiles/nvim/Session.vim
-badd +22 lua/peter/packer.lua
+badd +85 lua/peter/packer.lua
 badd +1 ~/Projects/dotfiles/nvim/
 badd +18 lua/peter/set.lua
 badd +1 after/plugin/harpoon.lua
@@ -40,14 +40,14 @@ setlocal fdn=20
 setlocal nofen
 silent! normal! zE
 1,15fold
-28,195fold
+28,197fold
 let &fdl = &fdl
-let s:l = 22 - ((14 * winheight(0) + 14) / 28)
+let s:l = 85 - ((20 * winheight(0) + 21) / 42)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 22
-normal! 06|
+keepjumps 85
+normal! 033|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -60,7 +60,6 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
-nohlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost
