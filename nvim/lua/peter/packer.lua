@@ -18,6 +18,7 @@ return require("packer").startup(function(use)
 	--	use("Tsuzat/NeoSolarized.nvim")
 	use("navarasu/onedark.nvim")
 	use("projekt0n/github-nvim-theme")
+	use("sainnhe/sonokai")
 	-- Icons
 	use("nvim-tree/nvim-web-devicons")
 
@@ -32,8 +33,6 @@ return require("packer").startup(function(use)
 	vim.g["prettier#autoformat_config_present"] = 1
 	use("nvimtools/none-ls.nvim") -- Might not do anything? Check later
 
-	use("m4xshen/autoclose.nvim")
-
 	use("mhartington/formatter.nvim")
 
 	use({
@@ -44,6 +43,26 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
 	use("ThePrimeagen/harpoon")
+
+	use({
+		"jellydn/CopilotChat.nvim",
+		config = function()
+			vim.defer_fn(function()
+				vim.cmd("UpdateRemotePlugins")
+				vim.notify("CopilotChat - Updated remote plugins. Please restart Neovim.")
+			end, 3000)
+		end,
+		event = "VimEnter",
+		keys = {
+			"<leader>ie", -- TODO DOCUMENT THESE BINDINGS
+			"<leader>it",
+		},
+		setup = function()
+			vim.g.copilot_chat_opts = {
+				mode = "split", -- newbuffer or split  , default: newbuffer
+			}
+		end,
+	})
 
 	use("airblade/vim-gitgutter")
 

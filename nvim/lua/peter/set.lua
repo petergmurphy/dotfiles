@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("github_dark_tritanopia")
+vim.cmd.colorscheme("sonokai")
 
 vim.opt.guicursor = ""
 
